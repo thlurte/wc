@@ -1,5 +1,6 @@
 import os
 import argparse
+import re
 
 parser = argparse.ArgumentParser("Word Counter")
 parser.add_argument('-p','--path',help='Path of Text File',required=True)
@@ -9,6 +10,7 @@ parser.add_argument('-w','--word',help='Count Words',action='store_true')
 
 
 args = vars(parser.parse_args())
+
 
 
 # Open file path with specified encoding and read the file
@@ -25,5 +27,3 @@ with open(args['path'], 'r', encoding='utf-8') as file:
         # Step - 03: return the number of words in the file
         elif args['word']:
             print(len(file.read().split()))
-
-
