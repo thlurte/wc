@@ -1,3 +1,4 @@
+import os
 import argparse
 
 parser = argparse.ArgumentParser("Word Counter")
@@ -7,7 +8,7 @@ parser.add_argument('-c','--character',help='Count Characters',action='store_tru
 
 args = vars(parser.parse_args())
 
-if args['character']:
-    with open(args['path'],'r') as file:
-        print(file.read())
 
+# Step - 01: return the number of byters in the file
+if args['character']:
+    print(os.stat(args['path']).st_size)
